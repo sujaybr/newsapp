@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>News Feeds</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!--FONTS FROM GOOGLE FONTS-->
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+	
+	<!-- Add icon library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		font-family: 'Merriweather', serif;
+		background-color:  #e5e7e9 ;
+	}
+
+	.header {
+		text-align: center;
+	}
+
+	/* Left Side Menus */
+	.sidenav {
+		height: 100%;
+		width: 0;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		background-color: #111;
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 60px;
+	}
+
+	.sidenav a {
+		padding: 8px 8px 8px 32px;
+		text-decoration: none;
+		font-size: 25px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+	}
+
+	.sidenav a:hover {
+		color: #f1f1f1;
+	}
+
+	.sidenav .closebtn {
+		position: absolute;
+		top: 0;
+		right: 25px;
+		font-size: 36px;
+		margin-left: 50px;
+	}
+
+	#container {
+		transition: margin-left .5s;
+		padding: 16px;
+	}
+
+	@media screen and (max-height: 450px) {
+	  .sidenav {padding-top: 15px;}
+	  .sidenav a {font-size: 18px;}
+	}
+
+
+	/*Right Side menus*/
+	#rightmenu {
+		height: 100%;
+		width: 230px;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		right: 0;
+		background-color:  #1c2833;
+		overflow-x: hidden;
+		padding-top: 20px;
+	}
+
+	#rightmenu a {
+		padding: 6px 8px 6px 16px;
+		text-decoration: none;
+		text-align: left;
+		font-size: 25px;
+		color: #818181;
+		display: block;
+	}
+
+	#rightmenu a:hover {
+		color: #f1f1f1;
+	}
+
+	@media screen and (max-height: 450px) {
+		.rightsidebar {padding-top: 15px;}
+		.rightsidebar a {font-size: 18px;}
+	}
+	
+	.centerblock {
+		margin: 0 auto;
+		float: none;
+		text-align: center;
+	}	
+	
+	/* Style all font awesome icons */
+		.fa {
+			padding: 20px;
+			font-size: 30px;
+			width: 60px;
+			text-align: center;
+			text-decoration: none;
+			margin: 5px 2px;
+			border-radius: 50%;
+			
+		}
+		
+		/* Add a hover effect if you want */
+		.fa:hover {
+			opacity: 0.7;
+		}
+		
+		.fa-linkedin {
+		  background: #007bb5;
+		  color: white;
+		}	
+	
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<div class="row">
+			<div id="mySidenav" class="sidenav">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<a href="/category/all" target="_parent"><p style="color:white">Home</p></a>
+				<a href="/priority/all">My News</a>
+				<a href="/priority">Priorities</a>
+				<a href="/about">About</a>
+				<a href="/logout">Logout</a>
+			</div>
+		</div>
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+		
+		<div class="centerblock">
+				<h2> <b>Bangalore Institute of Technology</b> </h2>
+				<h4>K R Road, V V Puram, Bangalore - 560004</h4>
+				<div class="image" style="padding: 20px;">
+					<img src="{{ bitlogo }}" alt="bitlogo" width="100px" height="100px"/>
+				</div>
+				<h3><b>Department of Computer and Science Engineering</b></h3>
+        </br>
+        </br>
+
+        <h4>Project on</h4>
+        <h2>News Classification</h2>
+				<p><i>Under the guidance of:</i></p>
+				<h4><strong>Prof. Nethravathy V</strong></h4>
+        </br>
+        </br>
+        </br>
+			<div style="padding: 20px;">
+				<div class="col-md-12">
+        <h4>By,</h3>
+					<h4><bold>Sachin P</bold></h3>
+					<h4><bold>Sujay B R</bold></h3>
+					<h4><bold>Vivek Hegade M S</bold></h3>
+					<h4><bold>Raghunandan Bhat</bold></h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--SCRIPT FOR OPENING AND CLOSING OF THE SIDEBAR-->
+	<script>
+	function openNav() {
+		document.getElementById("mySidenav").style.width = "250px";
+		document.getElementById("container").style.marginLeft = "250px";
+	}
+
+	function closeNav() {
+		document.getElementById("mySidenav").style.width = "0";
+		document.getElementById("container").style.marginLeft= "0";
+	}
+	</script>
+     
+</body>
+</html> 

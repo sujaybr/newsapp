@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{cat}}</title>
+	
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!--FONTS FROM GOOGLE FONTS-->
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		font-family: 'Merriweather', serif;
+		background-color:  #fff ;
+	}
+
+	.header {
+		text-align: center;
+	}
+
+
+
+	/* Left Side Menus */
+	.sidenav {
+		height: 100%;
+		width: 0;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		background-color: #111;
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 60px;
+	}
+
+	.sidenav a {
+		padding: 8px 8px 8px 32px;
+		text-decoration: none;
+		font-size: 25px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+	}
+
+	.sidenav a:hover {
+		color: #f1f1f1;
+	}
+
+	.sidenav .closebtn {
+		position: absolute;
+		top: 0;
+		right: 25px;
+		font-size: 36px;
+		margin-left: 50px;
+	}
+
+	#container {
+		transition: margin-left .5s;
+		padding: 16px;
+		overflow: scroll;
+		overflow-x: hidden;
+	}
+
+	@media screen and (max-height: 450px) {
+	  .sidenav {padding-top: 15px;}
+	  .sidenav a {font-size: 18px;}
+	}
+
+
+	/*Right Side menus*/
+	#rightmenu {
+		height: 100%;
+		width: 230px;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		right: 0;
+		background-color:  #1c2833;
+		overflow-x: hidden;
+		padding-top: 20px;
+	}
+
+	#rightmenu a {
+		padding: 6px 8px 6px 16px;
+		text-decoration: none;
+		text-align: left;
+		font-size: 25px;
+		color: #818181;
+		display: block;
+	}
+
+	#rightmenu a:hover {
+		color: #f1f1f1;
+	}
+
+	/*.btn {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+	.active, .btn:hover {
+    background-color: #666;
+    color: white;
+}*/
+
+	
+
+	@media screen and (max-height: 450px) {
+		.rightsidebar {padding-top: 15px;}
+		.rightsidebar a {font-size: 18px;}
+	}
+	
+	#topbutton {
+		display: none;
+		position: fixed;
+		bottom: 20px;
+		right: 30px;
+		z-index: 99;
+		font-size: 18px;
+		border: none;
+		outline: none;
+		background-color: #85929E;
+		color: white;
+		cursor: pointer;
+		padding: 15px;
+		border-radius: 4px;
+	}
+	
+	#topbutton:hover {
+	  background-color: #555;
+	}	
+
+	.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+	height: 100%;
+    border-radius: 5px;
+	background-color: white;
+	padding: 10px 20px 10px 20px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+	.card img {
+		border-radius: 5px 5px 0 0;
+	}
+	
+	.cardcontainer {
+		padding: 10px 16px;
+	}
+	
+	hr {
+		display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+	}
+
+	.spantext {
+		display: block;
+  width: 100px;
+  /*overflow: hidden;*/
+  white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+	
+	
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<div class="row">
+			<div id="mySidenav" class="sidenav">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<a href="/category/all" target="_parent"><p style="color:white">Home</p></a>
+				<a href="/priority/all">My News</a>
+				<a href="/priority">Priorities</a>
+				<a href="/about">About</a>
+				<a href="/logout">Logout</a>
+			</div>
+		</div>
+		
+
+
+		<div class="row">
+			<div class="col-md-2">
+				<span class="spantext" style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; {{ cat }}</span>
+			</div>
+			<!-- <div class="col-md-10" style="padding: 0px;margin: 0px">
+				<h2 style="text-align: left;">business</h2>	
+			</div> -->
+				
+				
+		</div>
+		
+		<div class="row">
+			<div class="col-md-9" style="margin: 20px;">
+		 			<div class="row">
+							{% for i in data %}
+              <!-- <div class="col-md-6" style="width:48%;height:250px;margin:10px;"> -->
+								<div class="card" style="margin: 20px;background-color:#EAF2F8">
+									<div class="cardcontainer">
+										<b><a style="font-size:25px;" href="{{i['url']}}">{{i['title']}} </a></b>
+									<br/>
+								
+										{{i['description']}}
+									</div>
+								<!-- </div> -->
+              </div>
+							{% endfor %}		
+					</div>
+			</div>
+
+			<div class="col-md-2">
+				<ul id="rightmenu">
+					<li>  <a id="all" href="/category/all">All</a> </li>
+					<li>  <a id="business" href="/category/business">Buisness</a> </li>
+					<li>  <a id="entertainment" href="/category/entertainment">Entertainment</a> </li>
+					<li>  <a id="politics" href="/category/politics">Politics</a> </li>
+					<li>  <a id="sports" href="/category/sports">Sports</a> </li>
+					<li>  <a id="technology" href="/category/technology">Technology</a> </li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div>
+		<button onclick="topFunction()" id="topbutton" title="Go to top">Top</button>
+	</div>
+	
+	<!--SCRIPT FOR OPENING AND CLOSING OF THE SIDEBAR-->
+	<script>
+	function openNav() {
+		document.getElementById("mySidenav").style.width = "250px";
+		document.getElementById("container").style.marginLeft = "250px";
+	}
+
+	function closeNav() {
+		document.getElementById("mySidenav").style.width = "0";
+		document.getElementById("container").style.marginLeft= "0";
+	}
+	</script>
+	
+	<script>
+	//move to top code
+	window.onscroll = function() {scrollFunction()};
+	function scrollFunction() {
+		if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
+		{
+			document.getElementById("topbutton").style.display = "block";
+		} else {
+			document.getElementById("topbutton").style.display = "none";
+		}
+	}
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+	</script>
+
+	<!-- <script>
+// Add active class to the current button (highlight it)
+var header = document.getElementById("rightmenu");
+var btns = header.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script> -->
+<script type="text/javascript" >
+
+$(document).ready(function () {
+
+$(function(){		
+
+
+    var current = location.pathname;
+    $('#rightmenu li a').each(function(){
+        var $this = $(this);
+        // if the current path is like this link, make it active
+        if($this.attr('href').indexOf(current) !== -1){
+            $this.addClass('active');
+        }
+    })
+})
+
+})		
+
+</script>
+     
+</body>
+</html> 
